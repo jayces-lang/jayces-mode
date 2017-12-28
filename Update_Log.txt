@@ -1,0 +1,12 @@
+# ========================================================================
+# $File: Update_Log.txt $
+# $Date: 2017-12-29 07:56:52 $
+# $Revision: $
+# $Creator: Jen-Chieh Shen $
+# $Notice: See LICENSE.txt for modification and distribution information
+#                   Copyright © 2017 by Shen, Jen-Chieh $
+# ========================================================================
+
+
+2017-12-29
+* First push and setup. (jayces-mode)
