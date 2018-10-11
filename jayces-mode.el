@@ -1,24 +1,23 @@
-;; This is the start of jcs-function.el file
-;;------------------------------------------------------------------------------------------------------
+;;; jayces-mode.el --- Major mode for editing JayCeS file.                 -*- lexical-binding: t; -*-
 
-;; jayces-mode.el             -*- Emacs-Lisp -*-
+;; Copyright (C) 2018  Shen, Jen-Chieh
+;; Created date 2018-10-11 16:28:04
 
-;; Mode for editing JayCeS code
+;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
+;; Description: Major mode for editing JayCeS file
+;; Keyword: jayces, major mode
+;; Version: 0.0.1
+;; Package-Requires: ()
+;; URL: https://github.com/jcs090218/jayces-mode
 
-;; Created:    <Tue June 18 13:51:49 EST 2017>
-;; Time-stamp: <2017-07-18 00:23:39>
-;; Author:     Jen-Chieh Shen <jcs090218@gmail.com>
-;; Version:    0.1
-;; Keywords:   JayCeS, languages, os, operating system
+;; This file is NOT part of GNU Emacs.
 
-;; Copyright (C) 2017 Jen-Chieh Shen
-
-;; jcs-function is free software: you can redistribute it and/or modify
+;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or
 ;; (at your option) any later version.
 
-;; jcs-function is distributed in the hope that it will be useful,
+;; This program is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
@@ -26,10 +25,38 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+;;; Commentary:
+;;
+;; Major mode for editing JayCeS file.
+;;
 
-;;=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-;; JayCeS mode.
-;;=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+;;; Code:
+
+(eval-and-compile
+  (require 'compile)
+  (require 'cc-mode)
+  (require 'font-lock)
+  (require 'rx)
+  (require 'newcomment))
+
+(eval-when-compile
+  (require 'cl))
+
+
+;;; Font Lock
+(defconst jayces--font-lock-keywords
+  '(("function" . font-lock-keyword-face))
+  "Font lock keywords for `jayces-mode'.  See `font-lock-keywords'.")
+
+
+(defvar jayces-mode-syntax-table
+  (let ((table (make-syntax-table)))
+    (c-populate-syntax-table table)
+    (modify-syntax-entry ?$ "_" table)
+    (modify-syntax-entry ?` "\"" table)
+    table)
+  "Syntax table for `jayces-mode'.")
+
 
 (defvar jayces-mode-map nil "Kaymap for `jayces-mode'")
 (progn
@@ -47,33 +74,42 @@
   :type  'hook)
 
 ;; main JayCeS code mode.
-(define-derived-mode jayces-mode ()
-  "JayCeS mode"
-  (interactive)
+(define-derived-mode jayces-mode prog-mode "JayCeS"
+  "Major mode for editing JayCeS file."
 
-  ;; Abbrevation expansion
-  (abbrev-mode 1)
+  :group 'jayces
+  :syntax-table jayces-mode-syntax-table
 
-  ;; enable the stuff you want for Lua here
-  (electric-pair-mode 1)
+  (setq-local font-lock-defaults (list jayces--font-lock-keywords))
 
-    ;; highlight URL and clickable.
-  (goto-address-mode 1)
+  ;; Comments
+  (setq-local comment-start "// ")
+  (setq-local comment-end "")
 
-  ;; comment block.
-  (setq-local comment-start "/*")
-  (setq-local comment-start-skip "/\\*+[ \t]*")
-  (setq-local comment-end "*/")
-  (setq-local comment-end-skip "[ \t]*\\*+/")
+  ;; for filling, pretend we're cc-mode
+  (setq c-comment-prefix-regexp "//+\\|\\**"
+        c-paragraph-start "$"
+        c-paragraph-separate "$"
+        c-block-comment-prefix "* "
+        c-line-comment-starter "//"
+        c-comment-start-regexp "/[*/]\\|\\s!"
+        comment-start-skip "\\(//+\\|/\\*+\\)\\s *")
+
+  (let ((c-buffer-is-cc-mode t))
+    (make-local-variable 'paragraph-start)
+    (make-local-variable 'paragraph-separate)
+    (make-local-variable 'paragraph-ignore-fill-prefix)
+    (make-local-variable 'adaptive-fill-mode)
+    (make-local-variable 'adaptive-fill-regexp)
+    (c-setup-paragraph-variables))
+
 
   ;; bind keymap
   (use-local-map jayces-mode-map)
-
-  ;; NOTE(jenchieh): this will auto run.
-  ;;(run-hooks 'jayces-mode-hook)
   )
 
-(provide 'jayces-mode)
+(add-to-list 'auto-mode-alist '("\\.jcs$" . jayces-mode))
+(add-to-list 'auto-mode-alist '("\\.jayces$" . jayces-mode))
 
-;;------------------------------------------------------------------------------------------------------
-;; This is the end of jayces-mode.el file
+(provide 'jayces-mode)
+;;; jayces-mode.el ends here
