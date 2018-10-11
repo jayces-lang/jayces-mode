@@ -7,7 +7,7 @@
 ;; Description: Major mode for editing JayCeS file
 ;; Keyword: jayces, major mode
 ;; Version: 0.0.1
-;; Package-Requires: ()
+;; Package-Requires: ((emacs "24.3"))
 ;; URL: https://github.com/jcs090218/jayces-mode
 
 ;; This file is NOT part of GNU Emacs.
