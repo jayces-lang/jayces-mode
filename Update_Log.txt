@@ -8,5 +8,8 @@
 # ========================================================================
 
 
+2018-10-11
+* Syntax highlighting. (jayces-mode)
+
 2017-12-29
 * First push and setup. (jayces-mode)
