@@ -40,7 +40,7 @@
   (require 'newcomment))
 
 (eval-when-compile
-  (require 'cl))
+  (require 'cl-lib))
 
 
 ;;; Font Lock
@@ -58,14 +58,18 @@
   "Syntax table for `jayces-mode'.")
 
 
-(defvar jayces-mode-map nil "Kaymap for `jayces-mode'")
-(progn
-  (setq jayces-mode-map (make-sparse-keymap))
+(defvar jayces-mode-map nil
+  "Kaymap for `jayces-mode'.")
 
-  ;; keymap define here.
-  (define-key jayces-mode-map (kbd "RET") 'jcs-smart-context-line-break)
-  (define-key jayces-mode-map (kbd "*") 'jcs-c-comment-pair)
-  )
+
+(unless jayces-mode-map
+  (progn
+    (setq jayces-mode-map (make-sparse-keymap))
+
+    ;; keymap define here.
+    (define-key jayces-mode-map (kbd "RET") 'jcs-smart-context-line-break)
+    (define-key jayces-mode-map (kbd "*") 'jcs-c-comment-pair)
+    ))
 
 ;; define hook
 (defcustom jayces-mode-hook nil
