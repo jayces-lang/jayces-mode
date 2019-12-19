@@ -1,3 +1,2 @@
-# JayCeS Mode #
-
-Major mode for editing JayCeS file. <br/><br/>
+# jayces-mode
+> Major mode for editing JayCeS file.
