@@ -1,10 +1,10 @@
-;;; jayces-mode.el --- Major mode for editing JayCeS file.  -*- lexical-binding: t; -*-
+;;; jayces-mode.el --- Major mode for editing JayCeS file  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018  Shen, Jen-Chieh
 ;; Created date 2018-10-11 16:28:04
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
-;; Description: Major mode for editing JayCeS file
+;; Description: Major mode for editing JayCeS file.
 ;; Keyword: jayces major mode
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "24.3"))
@@ -72,10 +72,21 @@
   "Syntax table for `jayces-mode'.")
 
 
+;;;###autoload
+(defun jayces-mode-smart-context-line-break ()
+  "Comment block line break."
+  (interactive))
+
+;;;###autoload
+(defun jayces-mode-c-comment-pair ()
+  "Auto pair c style comment block."
+  (interactive))
+
+
 (defvar jayces-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "RET") #'jcs-smart-context-line-break)
-    (define-key map (kbd "*") #'jcs-c-comment-pair)
+    (define-key map (kbd "RET") #'jayces-mode-smart-context-line-break)
+    (define-key map (kbd "*") #'jayces-mode-c-comment-pair)
     map)
   "Kaymap for `jayces-mode'.")
 
@@ -111,10 +122,8 @@
     (make-local-variable 'adaptive-fill-regexp)
     (c-setup-paragraph-variables))
 
-
   ;; bind keymap
-  (use-local-map jayces-mode-map)
-  )
+  (use-local-map jayces-mode-map))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.jcs'?\\'" . jayces-mode))
