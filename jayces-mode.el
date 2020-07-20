@@ -8,7 +8,7 @@
 ;; Keyword: jayces major mode
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "24.3"))
-;; URL: https://github.com/jcs090218/jayces-mode
+;; URL: https://github.com/jcs-elpa/jayces-mode
 
 ;; This file is NOT part of GNU Emacs.
 
@@ -42,26 +42,22 @@
 (eval-when-compile
   (require 'cl-lib))
 
-
 (defgroup jayces nil
   "Major mode for editing JayCeS file."
   :prefix "jayces-"
   :group 'languages
-  :link '(url-link :tag "Repository" "https://github.com/jcs090218/jayces-mode"))
-
+  :link '(url-link :tag "Repository" "https://github.com/jcs-elpa/jayces-mode"))
 
 ;;; Font Lock
 (defconst jayces--font-lock-keywords
   '(("function" . font-lock-keyword-face))
   "Font lock keywords for `jayces-mode'.  See `font-lock-keywords'.")
 
-
 ;; define hook
 (defcustom jayces-mode-hook nil
   "*Hook to be run when `jayces-mode' is entered."
   :type  'hook
   :group 'jayces)
-
 
 (defvar jayces-mode-syntax-table
   (let ((table (make-syntax-table)))
@@ -70,7 +66,6 @@
     (modify-syntax-entry ?` "\"" table)
     table)
   "Syntax table for `jayces-mode'.")
-
 
 ;;;###autoload
 (defun jayces-mode-smart-context-line-break ()
@@ -82,14 +77,12 @@
   "Auto pair c style comment block."
   (interactive))
 
-
 (defvar jayces-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "RET") #'jayces-mode-smart-context-line-break)
     (define-key map (kbd "*") #'jayces-mode-c-comment-pair)
     map)
   "Kaymap for `jayces-mode'.")
-
 
 ;; The main mode functions
 ;;;###autoload
@@ -129,7 +122,6 @@
 (add-to-list 'auto-mode-alist '("\\.jcs'?\\'" . jayces-mode))
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.jayces'?\\'" . jayces-mode))
-
 
 (provide 'jayces-mode)
 ;;; jayces-mode.el ends here
