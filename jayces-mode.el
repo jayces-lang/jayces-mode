@@ -4,11 +4,10 @@
 ;; Created date 2018-10-11 16:28:04
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
-;; Description: Major mode for editing JayCeS file.
-;; Keyword: jayces major mode
+;; URL: https://github.com/jcs-elpa/jayces-mode
 ;; Version: 0.0.2
 ;; Package-Requires: ((emacs "24.3"))
-;; URL: https://github.com/jcs-elpa/jayces-mode
+;; Keywords: jayces major mode
 
 ;; This file is NOT part of GNU Emacs.
 

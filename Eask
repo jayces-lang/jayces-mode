@@ -2,6 +2,9 @@
          "0.0.2"
          "Major mode for editing JayCeS file")
 
+(website-url "https://github.com/jcs-elpa/jayces-mode")
+(keywords "jayces" "major" "mode")
+
 (package-file "jayces-mode.el")
 
 (source "melpa")
