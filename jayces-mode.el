@@ -7,7 +7,7 @@
 ;; URL: https://github.com/jcs-elpa/jayces-mode
 ;; Version: 0.0.2
 ;; Package-Requires: ((emacs "24.3"))
-;; Keywords: jayces major mode
+;; Keywords: lisp jayces
 
 ;; This file is NOT part of GNU Emacs.
 
