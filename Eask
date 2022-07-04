@@ -3,7 +3,7 @@
          "Major mode for editing JayCeS file")
 
 (website-url "https://github.com/jcs-elpa/jayces-mode")
-(keywords "jayces" "major" "mode")
+(keywords "lisp" "jayces")
 
 (package-file "jayces-mode.el")
 
