@@ -4,7 +4,7 @@
 # jayces-mode
 > Major mode for editing JayCeS file.
 
-[![CI](https://github.com/jcs-elpa/jayces-mode/actions/workflows/test.yml/badge.svg)](https://github.com/jcs-elpa/jayces-mode/actions/workflows/test.yml)
+[![CI](https://github.com/jayces-lang/jayces-mode/actions/workflows/test.yml/badge.svg)](https://github.com/jayces-lang/jayces-mode/actions/workflows/test.yml)
 
 ## Contribute
 

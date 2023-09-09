@@ -4,7 +4,7 @@
 ;; Created date 2018-10-11 16:28:04
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
-;; URL: https://github.com/jcs-elpa/jayces-mode
+;; URL: https://github.com/jayces-lang/jayces-mode
 ;; Version: 0.0.2
 ;; Package-Requires: ((emacs "24.3"))
 ;; Keywords: lisp jayces
@@ -45,7 +45,7 @@
   "Major mode for editing JayCeS file."
   :prefix "jayces-"
   :group 'languages
-  :link '(url-link :tag "Repository" "https://github.com/jcs-elpa/jayces-mode"))
+  :link '(url-link :tag "Repository" "https://github.com/jayces-lang/jayces-mode"))
 
 ;;; Font Lock
 (defconst jayces--font-lock-keywords
