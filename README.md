@@ -36,8 +36,6 @@ or
   :load-path "/path/to/lib")
 ```
 
-then in Emacs:
-
 ## Contribute
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
