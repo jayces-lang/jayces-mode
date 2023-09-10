@@ -7,6 +7,13 @@
 > Major mode for editing JayCeS file.
 
 [![CI](https://github.com/jayces-lang/jayces-mode/actions/workflows/test.yml/badge.svg)](https://github.com/jayces-lang/jayces-mode/actions/workflows/test.yml)
+## 💾 Installation
+
+### JCS-ELPA
+
+The easiest way of installing this package is through [JCS-ELPA](https://jcs-emacs.github.io/jcs-elpa/)
+([set it up](https://github.com/jcs-emacs/jcs-elpa#-how-to-use)). 
+Just run [<kbd>M-x package-list-packages</kbd>](https://www.gnu.org/software/emacs/manual/html_node/emacs/Packages.html#Packages).
 
 ## Contribute
 
