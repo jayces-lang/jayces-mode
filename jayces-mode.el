@@ -6,7 +6,7 @@
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
 ;; URL: https://github.com/jayces-lang/jayces-mode
 ;; Version: 0.0.2
-;; Package-Requires: ((emacs "24.3"))
+;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: lisp jayces
 
 ;; This file is NOT part of GNU Emacs.
