@@ -31,15 +31,9 @@
 
 ;;; Code:
 
-(eval-and-compile
-  (require 'compile)
-  (require 'cc-mode)
-  (require 'font-lock)
-  (require 'rx)
-  (require 'newcomment))
-
-(eval-when-compile
-  (require 'cl-lib))
+(require 'cl-lib)
+(require 'rx)
+(require 'js)
 
 (defgroup jayces nil
   "Major mode for editing JayCeS file."
@@ -66,20 +60,8 @@
     table)
   "Syntax table for `jayces-mode'.")
 
-;;;###autoload
-(defun jayces-mode-smart-context-line-break ()
-  "Comment block line break."
-  (interactive))
-
-;;;###autoload
-(defun jayces-mode-c-comment-pair ()
-  "Auto pair c style comment block."
-  (interactive))
-
 (defvar jayces-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "RET") #'jayces-mode-smart-context-line-break)
-    (define-key map (kbd "*") #'jayces-mode-c-comment-pair)
     map)
   "Kaymap for `jayces-mode'.")
 
@@ -87,11 +69,12 @@
 ;;;###autoload
 (define-derived-mode jayces-mode prog-mode "JayCeS"
   "Major mode for editing JayCeS file."
-
   :group 'jayces
   :syntax-table jayces-mode-syntax-table
 
   (setq-local font-lock-defaults (list jayces--font-lock-keywords))
+
+  (setq-local indent-line-function 'js-indent-line)
 
   ;; Comments
   (setq-local comment-start "// ")
