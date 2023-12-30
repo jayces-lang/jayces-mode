@@ -2,7 +2,7 @@
          "0.0.2"
          "Major mode for editing JayCeS file")
 
-(website-url "https://github.com/jcs-elpa/jayces-mode")
+(website-url "https://github.com/jayces-lang/jayces-mode")
 (keywords "lisp" "jayces")
 
 (package-file "jayces-mode.el")
