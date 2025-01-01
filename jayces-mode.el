@@ -1,6 +1,6 @@
 ;;; jayces-mode.el --- Major mode for editing JayCeS file  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2018-2024  Shen, Jen-Chieh
+;; Copyright (C) 2018-2025  Shen, Jen-Chieh
 ;; Created date 2018-10-11 16:28:04
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
