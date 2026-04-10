@@ -65,7 +65,6 @@
     map)
   "Kaymap for `jayces-mode'.")
 
-;; The main mode functions
 ;;;###autoload
 (define-derived-mode jayces-mode prog-mode "JayCeS"
   "Major mode for editing JayCeS file."
